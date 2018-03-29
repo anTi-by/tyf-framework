@@ -1,2 +1,4 @@
 target/
+base-test/target/
+base-webtest/target/
 .idea/
