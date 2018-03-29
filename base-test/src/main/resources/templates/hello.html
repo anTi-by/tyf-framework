@@ -5,6 +5,11 @@
     <title>Title</title>
 </head>
 <body>
-1233654646
+<form th:action="@{a/b}" th:object="${user}" th:method="post">
+    <input type="text" th:field="*{account}"/>
+    <input type="text" th:field="*{pass}"/>
+    <input type="submit"/>
+</form>
+
 </body>
 </html>
