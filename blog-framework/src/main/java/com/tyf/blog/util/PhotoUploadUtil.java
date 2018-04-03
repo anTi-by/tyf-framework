@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import java.io.*;
 import java.util.Calendar;
 
 /**
@@ -40,12 +41,12 @@ public class PhotoUploadUtil {
     public String basePath;
 
     //上传到七牛后保存的文件名
-    public String getFilePath(String fileName){
+    public String getFilePath(){
         Calendar instance = Calendar.getInstance();
         int year = instance.get(Calendar.YEAR);
         int month = instance.get(Calendar.MONTH)+1;
         int day = instance.get(Calendar.DATE);
-        return year+"/"+month+"/"+day+"/"+fileName;
+        return "d:/"+year+"/"+month+"/"+day;
     }
 
     public Auth getAuth(){
@@ -68,10 +69,11 @@ public class PhotoUploadUtil {
         PhotoResult result = new PhotoResult();
         try {
             Configuration cfg = new Configuration(Zone.zone2());
-            Response response = new UploadManager(cfg).put(realName, getFilePath(filename), getUpToken());
+            Response response = new UploadManager(cfg).put(realName, getFilePath(), getUpToken());
+
             if (response.isOK()){
                 result.setSuccess(1);
-                result.setUrl(basePath+getFilePath(filename));
+              //  result.setUrl(basePath+getFilePath(filename));
                 return result;
             }
         } catch (QiniuException e) {
@@ -92,19 +94,23 @@ public class PhotoUploadUtil {
     public PhotoResult uploadPhoto(byte[] data, String filename){
         PhotoResult result = new PhotoResult();
         try {
-            Configuration cfg = new Configuration(Zone.zone2());
-            Response response = new UploadManager(cfg).put(data, getFilePath(filename), getUpToken());
-            if (response.isOK()){
-                result.setSuccess(1);
-                result.setUrl(basePath+getFilePath(filename));
-                return result;
-            }
-        } catch (QiniuException e) {
+//            Configuration cfg = new Configuration(Zone.zone2());
+//            Response response = new UploadManager(cfg).put(data, getFilePath(filename), getUpToken());
+            String path=getFilePath();
+            File f= new File(path);
+            f.mkdirs();
+            OutputStream out = new FileOutputStream(path+"/"+filename);
+            out.write(data,0,data.length);
+            out.close();
+            result.setSuccess(1);
+         //   result.setUrl(basePath+getFilePath(filename));
+            return result;
+        } catch (Exception e) {
             result.setSuccess(0);
             result.setMessage(e.getMessage());
             return result;
         }
-        return result;
+       // return result;
     }
 
     /**

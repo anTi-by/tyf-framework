@@ -66,7 +66,8 @@ public class ImageController {
 
             JSONObject object = (JSONObject) JSONObject.parse(avatarData);
             //上传图片
-            result = photoUploadUtil.uploadPhoto(ImageCutUtil.cutImageForByte(ImageIO.read(file.getInputStream()),(int) object.getFloatValue("x"), (int) object.getFloatValue("y"), (int) object.getFloatValue("width"), (int) object.getFloatValue("height")), file.getOriginalFilename());
+           // byte[] aa=ImageCutUtil.cutImageForByte(ImageIO.read(file.getInputStream()),(int) object.getFloatValue("x"), (int) object.getFloatValue("y"), (int) object.getFloatValue("width"), (int) object.getFloatValue("height"));
+            result = photoUploadUtil.uploadPhoto(file.getBytes(), file.getOriginalFilename());
             User user = (User) request.getSession().getAttribute("user");
             userService.updateAvatar(result.getUrl(),user.getUsername());
             result.setMessage("修改图像成功！！！");

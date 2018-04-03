@@ -16,9 +16,9 @@
 		+ "<a target='_blank' class='msb_network_button qZone'>qZone</a>"
 		+ "<a target='_blank' class='msb_network_button douban'>douban</a>"
 		+ "</div>";
-        $(target).append($msb_main);
-        $(target).append($social_group);
-        $(target).addClass("socialShare");
+        // $(target).append($msb_main);
+        // $(target).append($social_group);
+        // $(target).addClass("socialShare");
 
 		//添加QQ好友分享事件
 		$(document).on("click",".msb_network_button.tQQ",function(){
