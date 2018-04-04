@@ -71,7 +71,7 @@ public class ArticleServiceImpl implements ArticleService {
         article.setStatus(1);
         articleMapper.saveArticle(article);
         articleMapper.saveArticleTag(id,tags);
-        baiduTask.pushOneArticle(String.valueOf(id));
+      //  baiduTask.pushOneArticle(String.valueOf(id));
     }
 
     @Override
