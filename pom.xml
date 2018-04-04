@@ -12,6 +12,7 @@
         <module>base-test</module>
         <module>base-webtest</module>
         <module>blog-framework</module>
+        <module>zblog</module>
     </modules>
 
 

@@ -4,9 +4,8 @@
 $(function() {
     var testEditormdView;
     $('#main').addClass('loaded');
-
     testEditormdView = editormd.markdownToHTML("article-content", {
-        htmlDecode      : "style,script,<iframe",  // you can filter tags decode
+        htmlDecode      : "style,script,iframe",  // you can filter tags decode
         emoji           : true,
         taskList        : true,
         tex             : true,  // 默认不解析

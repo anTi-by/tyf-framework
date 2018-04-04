@@ -22,14 +22,14 @@
         </aside>
 
 
-        <section id="main" th:data-id="${createTime}">
-            <!-- <div id="loader-wrapper">
-                 <div id="loader"></div>
-                 <div class="loader-section section-left"></div>
-                 <div class="loader-section section-right"></div>
-                 <div class="load_title">正在加载EumJi站点....<br><span>V1.0</span></div>
-             </div>-->
-            <div id="main-article" th:insert="blog/part/archiveSummary :: archive-summary">
+        <section id="main" th:data-id="${categoryId}">
+           <!-- <div id="loader-wrapper">
+                <div id="loader"></div>
+                <div class="loader-section section-left"></div>
+                <div class="loader-section section-right"></div>
+                <div class="load_title">正在加载anTi站点....<br><span>V1.0</span></div>
+            </div>-->
+            <div id="main-article" th:insert="blog/part/categorySummary :: category-summary">
 
             </div>
             <div style="margin-top: -29px;height:50px">
@@ -68,7 +68,7 @@
 </div>
 <script src="/js/jquery.min.js"></script>
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<script src="/js/archive.js"></script>
+<script src="/js/category.js"></script>
 <script src="/js/article.click.js"></script>
 <script src="/js/share.js"></script>
 <script src="/js/jqPaginator.min.js"></script>

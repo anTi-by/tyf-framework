@@ -33,7 +33,7 @@ public class WebSecurityAdapter extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) {
-        web.ignoring().antMatchers("**/js/**", "**/css/**", "/vendor/**", "/image/**", "/admin/lib/**","/admin/plugins/**");
+        web.ignoring().antMatchers("/**/*.*");
     }
 
 
