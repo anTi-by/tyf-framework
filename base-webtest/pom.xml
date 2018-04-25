@@ -13,7 +13,7 @@
     <properties>
 
         <spring.version>4.3.3.RELEASE</spring.version>
-
+        <jdk.version>1.7</jdk.version>
     </properties>
     <!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
     <dependencies>
@@ -77,4 +77,29 @@
 
 
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${jdk.version}</source>
+                    <target>${jdk.version}</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>9.2.8.v20150217</version>
+                <configuration>
+                    <!-- <scanIntervalSeconds>10</scanIntervalSeconds> --><!-- 热部署时间间隔 -->
+                    <reload>manual</reload><!-- 在控制台回车,重启工程 -->
+                    <httpConnector>
+                        <port>80</port><!-- 端口 -->
+                    </httpConnector>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

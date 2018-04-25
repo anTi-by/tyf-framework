@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 public class Demo1Controller {
     @RequestMapping("")
     public String main(HttpServletRequest request,ModelMap map){
+        request.getSession().setAttribute("nihao","dff");
         boolean res= SSOcheck.checkCookie(request);
         if (res){
             return "demo1";
