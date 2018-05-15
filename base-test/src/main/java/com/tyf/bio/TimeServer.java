@@ -24,6 +24,7 @@ public class TimeServer {
             Socket socket=null;
             while(true){
                 socket=serverSocket.accept();
+                System.out.println("client in");
                 new Thread(new TimeServerHander(socket)).start();
             }
 

@@ -17,7 +17,7 @@ public class Client {
             socket=new Socket("127.0.0.1",port);
             while(true){
                 in=new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            out =new PrintWriter(socket.getOutputStream(),true);
+                out =new PrintWriter(socket.getOutputStream(),true);
                 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
                 String str;
                 str = br.readLine();

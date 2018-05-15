@@ -11,7 +11,10 @@
     <modules>
         <module>base-test</module>
         <module>base-webtest</module>
-        <module>zblog</module>		
+        <module>zblog</module>
+        <module>cloud-eureka-server</module>
+        <module>cloud-eureka-client</module>
+        <module>cloud-eureka-consumer</module>
     </modules>
 
 

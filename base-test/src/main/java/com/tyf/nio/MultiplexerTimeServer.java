@@ -55,6 +55,7 @@ public class MultiplexerTimeServer implements Runnable {
                 SelectionKey key=null;
                 while(it.hasNext()){
                     key=it.next();
+                    System.out.println("=========================");
                     it.remove();
                     try {
                         handleInput(key);
@@ -90,12 +91,14 @@ public class MultiplexerTimeServer implements Runnable {
                 sc.configureBlocking(false);
                 //将新链接的客户端注册到复用器上
                 sc.register(selector,SelectionKey.OP_READ);
+                System.out.println("========/将新链接的客户端注册到复用器上=================");
             }
             if (key.isReadable()){
                 //读取数据
                 SocketChannel sc =(SocketChannel)key.channel();
                 ByteBuffer readBuffer=ByteBuffer.allocate(1024);
                 int readByts=sc.read(readBuffer);
+                System.out.println("=======/读取数据================"+sc.getRemoteAddress());
                 if(readByts>0){
                     readBuffer.flip();
                     byte[] bytes=new byte[readBuffer.remaining()];
@@ -108,8 +111,10 @@ public class MultiplexerTimeServer implements Runnable {
                     //对链路进行关闭
                     key.cancel();
                     sc.close();
+                    System.out.println("======对链路进行关闭=======");
                 }else {
                     //读到0字节  ，忽略
+                    System.out.println("====/读到0字节  ，忽略=====");
                 }
             }
         }
