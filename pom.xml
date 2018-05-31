@@ -15,6 +15,7 @@
         <module>cloud-eureka-server</module>
         <module>cloud-eureka-client</module>
         <module>cloud-eureka-consumer</module>
+        <module>cloud-api-gateway</module>
     </modules>
 
 
