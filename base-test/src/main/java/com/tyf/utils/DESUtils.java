@@ -82,7 +82,7 @@ public class DESUtils {
     
     public static void main(String[] args) {
         String a=DESUtils.des3EncodeECB("fjgs@123");
-        String B= DESUtils.des3DecodeECB(a);
+        String B= DESUtils.des3DecodeECB("QLal40jz9+HLgkHlF8vzmg==");
         System.out.println(a);
         System.out.println(B);
     }
