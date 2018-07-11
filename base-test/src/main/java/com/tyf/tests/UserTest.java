@@ -1,20 +1,20 @@
 package com.tyf.tests;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.lang.reflect.Proxy;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
+
 public class UserTest {
     public static void main(String[] args) {
-        UserEntity user=new UserEntity();
-        System.out.println(user);
-        System.out.println("=====================");
-        inserData(user);
-        System.out.println(user);
-    }
-    public  static void inserData(UserEntity userEntity){
-        if (userEntity.getName()==null){
-            userEntity.setName("张三");
-            userEntity.setAge(14);
-            userEntity.setDiscripe("市三好学生");
-        }else{
-            System.out.println("data is not null!");
-        }
+//        ProxyFlower proxyFlower =new ProxyFlower(new RoseFlower());
+//        proxyFlower.getFlower("reos");
+        Flower sub=new RoseFlower();
+        MyProxy proxy=new MyProxy(sub);
+        Flower oo=(Flower)Proxy.newProxyInstance(sub.getClass().getClassLoader(),new Class[]{Flower.class},proxy);
+        oo.getFlower("nio");
     }
 }

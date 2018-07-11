@@ -1,5 +1,7 @@
 package com.tyf.utils;
 
+import org.springframework.beans.factory.xml.XmlBeanFactory;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
@@ -9,6 +11,7 @@ public class SSOcheck {
         if (acccount.equals("1234")){
             return true;
         }
+
         return false;
     }
 
